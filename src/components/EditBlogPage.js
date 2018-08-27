@@ -6,17 +6,17 @@ import { startUpdateBlog, startRemoveBlog } from '../actions/blogs';
 //import ReadBlog from './ReadBlog';
 
 const EditBlogPage = (props) =>{
-	console.log(props);
 	return (
-		<div className="content-container">
-			<div className="page-header">
-				<p className="page-header__title">Find your readable blog at
+		<div className="edit-page-content">
+			<div className="content-container">
+			<div>
+				<h3 className="page-header__title">Find your readable blog at
 					<span>
-						<Link to={`/read/${props.blog.id}`}>{`  localhost:8080/read/${props.blog.id}`}</Link> 
+						<Link to={`/read/${props.blog.id}`}>{`https://myfirst-blog-web-app.herokuapp.com/read/${props.blog.id}`}</Link> 
 					</span>
-				</p> 
+				</h3> 
 			</div>
-
+			
 			<BlogForm
 				blog ={props.blog}
 				onSubmit={(blog) => {
@@ -31,6 +31,7 @@ const EditBlogPage = (props) =>{
 				}}
 				className="button button-secondary"
 			>Delete Blog</button>
+		</div>
 		</div>
 	);
 }

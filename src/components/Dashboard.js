@@ -6,7 +6,7 @@ import BlogLists from './BlogLists';
 
 
 const DashboardPage = () => (
-	<div>
+	<div className="dashpage-body">
 		<BlogsSummary />
 		<BlogListFilter />
 		<BlogLists />

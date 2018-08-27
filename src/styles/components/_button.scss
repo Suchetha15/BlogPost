@@ -12,12 +12,20 @@
 
 .button-logout {
     background: $dark-blue;
+    padding: 0;
 }
 
 .button-secondary {
     background: #888888;
+    margin: 0 0 0 $m-size;
 }
 
 .button-fb {
     margin-top: 6px;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+    
 }

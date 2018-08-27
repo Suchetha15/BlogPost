@@ -5,10 +5,12 @@ import { startAddBlog } from '../actions/blogs';
 
 const CreateBlogPage = (props) => {
     return (
-        <BlogForm onSubmit={(blog) => {
-            props.dispatch(startAddBlog(blog));
-            props.history.push('/');
-        }}/>
+        <div className="page-body">
+            <BlogForm onSubmit={(blog) => {
+                props.dispatch(startAddBlog(blog));
+                props.history.push('/');
+            }}/>
+        </div>
     )
 };
 

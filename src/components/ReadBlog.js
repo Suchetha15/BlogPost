@@ -8,9 +8,11 @@ const ReadBlog = (props) => {
     return (
         <div>
             <Header />
-            <div className="content-container">
-                <h3 className="read-header">{props.blog.title}</h3>
-                <p className="read-content">{props.blog.note}</p>
+            <div className="read-page-content ">
+                <div className="content-container">
+                    <h3 className="read-header">{props.blog.title}</h3>
+                    <p className="read-content">{props.blog.note}</p>
+                </div>
             </div>
         </div>
     )

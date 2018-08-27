@@ -9,15 +9,16 @@ export class BlogListFilter extends React.Component{
 
     render(){
         return (
-        <div>
-            <form>
+        <div  className="content-container">
+            <form className="filter-input-group">
                 <input
                     placeholder="Search Blogs.."
                     type="text"
                     value={this.props.filters.text}
                     onChange={(e) => {
                         this.props.dispatch(setTextFilter(e.target.value));
-                      }}   
+                      }}  
+                    className="filter-group-item" 
                 ></input>
                 <select
                     value = {this.props.filters.value}
@@ -34,6 +35,7 @@ export class BlogListFilter extends React.Component{
                             }
                         }    
                     }
+                    className="filter-group-item"
                 >
                     <option value="date_asc">Recent Blogs first</option>
                     <option value="date_desc">Oldest Blogs first</option>

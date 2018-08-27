@@ -9,8 +9,8 @@
 }
 
 .page-header__title{
-    font-weight: 300;
-    font-size: $m-size;
+    font-weight: 700;
+    font-size: 1.8rem;
     padding: 0 0 0 $m-size;
     margin: 0;
     span {
@@ -20,7 +20,7 @@
 
 .read-header{
     background: $off-white;
-    color: darkcyan;
+    color: rgb(31, 56, 56);
     font-size: $l-size;
 }
 

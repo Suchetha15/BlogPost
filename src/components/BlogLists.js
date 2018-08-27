@@ -8,10 +8,15 @@ import selectVisibleBlogs from '../selectors/selectBlogs';
 const BlogLists = (props) => {
    // console.log(props.dispatch(startGetBloglength()));
     return (
-        <div>
-            {props.blogs.map((blog) => (
-                 <BlogListItems key={blog.id} {...blog} />
-            ))}             
+        <div className="content-container">
+            <div className="list-header">
+                    Blogs
+            </div>
+            <div>
+                {props.blogs.map((blog) => (
+                    <BlogListItems key={blog.id} {...blog} />
+                ))}             
+            </div>
         </div>
     );
 } 

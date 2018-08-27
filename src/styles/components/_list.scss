@@ -1,0 +1,18 @@
+.list-header{
+  background: $off-white;
+  color: $dark-grey;
+  font-weight:700;
+  border: 1px solid darken($off-white, 7%);
+  padding: $s-size;
+}
+
+.list-content {
+  border: 1px solid darken($off-white, 7%);
+  padding: $s-size;
+}
+
+.list-content__link{
+  text-decoration: none;
+  color: $dark-grey;
+  padding: $s-size;
+}
