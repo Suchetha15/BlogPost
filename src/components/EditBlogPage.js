@@ -32,9 +32,9 @@ class EditBlogPage extends React.Component{
 		  localStorage.setItem('removeSelected', json);
 	}
 
-	componentWillUnmount() {
-		console.log('unmount');
-	}
+	// componentWillUnmount() {
+	// 	console.log('unmount');
+	// }
 
 	handleDelete = () => {
 		this.setState({removeSelected: true});

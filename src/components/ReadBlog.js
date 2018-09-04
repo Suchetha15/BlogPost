@@ -4,7 +4,7 @@ import Header from './Header';
 //import BlogForm from './BlogForm';
 
 const ReadBlog = (props) => {
-    //console.log(props);
+    console.log(props);
     return (
         <div>
             <Header />
