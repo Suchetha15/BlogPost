@@ -31,7 +31,7 @@ ReactDOM.render(<LoadingPage />, document.getElementById("test"));
 
 firebase.auth().onAuthStateChanged((user) => {
     if(user){
-        console.log(user.photoURL);
+        //console.log(user.photoURL);
         store.dispatch(login(user.uid, user.displayName, user.photoURL));
         store.dispatch(startSetBlog()).then(() => {
             renderApp();

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { startLogout } from '../actions/auth';
 
 export const Header = (props) => {
-  console.log(props);
+  //console.log(props);
   return (
   <header className='header'>
     <div className="content-container">

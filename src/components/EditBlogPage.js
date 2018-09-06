@@ -59,7 +59,7 @@ class EditBlogPage extends React.Component{
 					<div className="content-container">
 						<RemoveModal 
 							handleRemoveBlog = {this.handleRemoveBlog}
-							removeSelected = {this.props.removeSelected}
+							//removeSelected = {this.props.removeSelected}
 							handleClearDeleteOption = {this.handleClearDeleteOption}
 						/>
 					</div>
