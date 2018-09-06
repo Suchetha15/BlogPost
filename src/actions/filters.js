@@ -13,8 +13,6 @@ export const sortByDateDesc = () => ({
     type: 'DATE_DESC'
 });
 
-import database from '../firebase/firebase';
-
 //sort by title ascending
 export const sortByTitleAsc = () => ({
     type: 'TITLE_ASC'
@@ -23,6 +21,16 @@ export const sortByTitleAsc = () => ({
 //sort by title descending
 export const sortByTitleDesc = () => ({
     type: 'TITLE_DESC'
+});
+
+export const openModal = (removeSelected = true) => ({
+    type: 'OPEN_MODAL',
+    removeSelected
+});
+
+export const closeModal = (removeSelected = false) => ({
+    type: 'CLOSE_MODAL',
+    removeSelected
 });
 
 // export const getBlogLength = (blogsLength) => ({

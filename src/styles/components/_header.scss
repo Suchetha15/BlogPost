@@ -8,6 +8,7 @@
     align-items: center;
     padding: $s-size 0;
     color: $off-white;
+    margin: 0;
 }
 
 .header__title {
@@ -18,13 +19,20 @@
     }
 }
 
+
 .header__user{
-    img{
-        border-radius: 50%;
+    margin: 0;
+    padding: 0;
+    p{
         margin: 0;
-        padding: 0;
-        height: 10%;
-        width: 10%;
+    }
+    img{
+        display: inline-block;
+        margin-left: $l-size;
+        //padding-left: $s-size;
+        border-radius: 50%;
+        height: 15%;
+        width: 15%;
         vertical-align: center;
     }
 }

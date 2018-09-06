@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Header from './Header';
-//import BlogForm from './BlogForm';
+//import Header from './Header';
 
 const ReadBlog = (props) => {
     console.log(props);
     return (
         <div>
-            <Header />
+            {/* <Header /> */}
             <div className="read-page-content ">
                 <div className="content-container">
                     <h3 className="read-header">{props.blog.title}</h3>
@@ -19,7 +18,7 @@ const ReadBlog = (props) => {
 };
 
 const mapStateToProps = (state,props) => {
-    console.log(state);
+    //console.log(state);
     return {
         blog: state.blogs.find((blog) => (blog.id === props.match.params.id))
     }

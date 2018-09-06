@@ -13,7 +13,8 @@ export const Header = (props) => {
           <h1>My Blog App</h1>
         </Link>
         <div className="header__user">
-          <p>Logged in, {props.auth.userName}<span><img src={props.auth.userImg} /></span></p>
+          <img src={props.auth.userImg} />
+          <p>Logged in, {props.auth.userName}</p>
           <button className="button button-logout" onClick={props.startLogout}>Logout</button>
         </div>
       </div>
@@ -25,6 +26,7 @@ export const Header = (props) => {
 const mapDispatchToProps = (dispatch) => ({
   startLogout: () => dispatch(startLogout())
 });
+
 const mapStateToProps = (state) => ({
   auth: state.auth 
 });

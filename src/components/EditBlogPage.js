@@ -5,6 +5,7 @@ import BlogForm from './BlogForm';
 import { startUpdateBlog, startRemoveBlog } from '../actions/blogs';
 import RemoveModal from './RemoveModal';
 import RemoveAction from './RemoveAction';
+import {openModal, closeModal} from '../actions/filters';
 
 
 class EditBlogPage extends React.Component{
@@ -12,51 +13,33 @@ class EditBlogPage extends React.Component{
 		super(props);
 	}
 
-	state={
-		removeSelected: false
-	}
-
-	componentDidMount() {
-		try {
-		  const json = localStorage.getItem('removeSelected');
-		  const removeSelected = JSON.parse(json);
-		  this.setState(() => ({removeSelected}))
-		
-		} catch(e) {
-		  //Nothing
-		}
-	}
-
-	componentDidUpdate() {
-		  const json = JSON.stringify(this.state.removeSelected);
-		  localStorage.setItem('removeSelected', json);
-	}
-
-	// componentWillUnmount() {
-	// 	console.log('unmount');
-	// }
-
 	handleDelete = () => {
-		this.setState({removeSelected: true});
+		this.props.openModal();
 	}
 
 	handleRemoveBlog = () => {
-		this.props.dispatch(startRemoveBlog(this.props.blog.id));
+		this.props.startRemoveBlog(this.props.blog.id);
+		this.props.closeModal();
 		this.props.history.push('/');
 	}
 
 	handleClearDeleteOption = () => {
-		this.setState(() => ({removeSelected: false}));
+		this.props.closeModal();
 	};
 
 	render(){
+		console.log(this.props);
 		return (
 			<div className="edit-page-content">
 				<div className="content-container">
 					<div>
 						<h3 className="page-header__title">Find your readable blog at
 							<span>
-								<Link to={`/read/${this.props.blog.id}`}>{`https://myfirst-blog-web-app.herokuapp.com/read/${this.props.blog.id}`}</Link> 
+								<Link 
+									to={`/read/${this.props.blog.id}`}
+								>
+									{` https://myfirst-blog-web-app.herokuapp.com/read/${this.props.blog.id}`}
+								</Link> 
 							</span>
 						</h3> 
 					</div>
@@ -68,28 +51,36 @@ class EditBlogPage extends React.Component{
 							this.props.history.push('/');
 						}}
 					/>
+
 					<RemoveAction
 						handleDelete={this.handleDelete}
 					/>
-		
-					<RemoveModal 
-						handleRemoveBlog = {this.handleRemoveBlog}
-						removeSelected = {this.state.removeSelected}
-						handleClearDeleteOption = {this.handleClearDeleteOption}
-					/>
-				</div>
+					</div>
+					<div className="content-container">
+						<RemoveModal 
+							handleRemoveBlog = {this.handleRemoveBlog}
+							removeSelected = {this.props.removeSelected}
+							handleClearDeleteOption = {this.handleClearDeleteOption}
+						/>
+					</div>
 			</div>
 		);
 	}	
 }
-	
+
+
+
 const mapStateToProps = (state,props) => {
-	const id = props.match.params.id
 	return {
-		blog: state.blogs.find((blog) => (blog.id === id))
+		blog: state.blogs.find((blog) => (blog.id === props.match.params.id)),
+		removeSelected: state.filters.removeSelected
 	}
 };
 
+const mapDispatchToProps = (dispatch) => ({
+	openModal: () => dispatch(openModal()),
+	closeModal: () => dispatch(closeModal()),
+	startRemoveBlog: (id) => dispatch(startRemoveBlog(id))
+  });
 
-
-export default connect(mapStateToProps)(EditBlogPage);
+export default connect(mapStateToProps, mapDispatchToProps)(EditBlogPage);

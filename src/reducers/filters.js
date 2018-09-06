@@ -1,6 +1,7 @@
 const filtersReducerDefaultState = {
     text: '',
-    sortBy: 'date_asc'
+    sortBy: 'date_asc',
+    removeSelected: false
 };
 
 export default (state = filtersReducerDefaultState, action) => {
@@ -36,6 +37,16 @@ export default (state = filtersReducerDefaultState, action) => {
         //         ...state,
         //         blogsLength: action.blogsLength
         //     }
+        case 'OPEN_MODAL':
+            return{
+                ...state,
+                removeSelected: true
+            }
+        case 'CLOSE_MODAL':
+            return{
+                ...state,
+                removeSelected: false
+            }
         default:
             return state;
     }
